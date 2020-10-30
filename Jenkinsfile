@@ -5,8 +5,8 @@ pipeline {
       steps {
         sh 'mvn -f javademos-master/ssgsems/pom.xml -B -DskipTests clean package'
         archiveArtifacts(fingerprint: true, artifacts: '**/target/*.war')
-        sh '''mkdir /home/subodh/buildoutput/${BUILD_NUMBER}
-cp **/target/*.war /home/azureuser/gitRepo/buildoutput/${BUILD_NUMBER}'''
+        sh '''mkdir /home/azureuser/buildoutput/${BUILD_NUMBER}
+cp **/target/*.war /home/azureuser/buildoutput/${BUILD_NUMBER}'''
       }
     }
 
