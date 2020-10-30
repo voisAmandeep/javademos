@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'mvn -f javademos/ssgsems/pom.xml -B -DskipTests clean package'
+        sh 'mvn -f javademos-master/ssgsems/pom.xml -B -DskipTests clean package'
         archiveArtifacts(fingerprint: true, artifacts: '**/target/*.war')
         sh '''mkdir /home/subodh/buildoutput/${BUILD_NUMBER}
 cp **/target/*.war /home/azureuser/gitRepo/buildoutput/${BUILD_NUMBER}'''
